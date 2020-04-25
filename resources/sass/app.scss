@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-row > div[class*='col-'] {
+  display: flex;
+}
+
+.auto-height {
+  height: auto;
+}
