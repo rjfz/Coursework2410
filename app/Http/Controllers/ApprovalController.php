@@ -14,7 +14,7 @@ class ApprovalController extends Controller
     public function pending_approvals() {
         if (Auth::user()) {
             if (Auth::user()->role != 'admin') {
-                return redirect('home')->with('status', 'You need to be an admin to access this page. (betch)');
+                return redirect('home')->with('status', 'You need to be an admin to access this page.');
             }
         } else {
             return redirect('home')->with('status', 'You must be logged in to access this page.');
@@ -29,7 +29,7 @@ class ApprovalController extends Controller
     public function pending_requests() {
         if (Auth::user()) {
             if (Auth::user()->role != 'admin') {
-                return redirect('home')->with('status', 'You need to be an admin to access this page. (betch)');
+                return redirect('home')->with('status', 'You need to be an admin to access this page.');
             }
         } else {
             return redirect('home')->with('status', 'You must be logged in to access this page.');
