@@ -18,8 +18,4 @@ class HomeController extends Controller {
 
         return view('home', ['categories' => $categories, 'items' => $items]);
     }
-
-    public function welcome() {
-        return view('welcome');
-    }
 }
