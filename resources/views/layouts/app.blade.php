@@ -38,9 +38,6 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('welcome') }}">{{ __('Welcome') }}</a>
-                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
