@@ -49,24 +49,17 @@ class ItemController extends Controller {
             'reported_by' => Auth::user()->id
         ]);
 
-        $categories = Category::all();
-
-        $item = Item::with('images')->find($item->id);
-
-        return view('item.new', ['categories' => $categories, 'item' => $item]);
+        return redirect('/item/edit/'.$item->id);
     }
 
     public function edit($item_id) {
         $categories = Category::all();
 
         $item = Item::with('images')->find($item_id);
-        // dd($item);
         return view('item.new', ['categories' => $categories, 'item' => $item]);
     }
 
     public function update(Request $request, $item_id) {
-        $categories = Category::all();
-
         $validatedData = $request->validate([
             'category_id' => 'required',
             'date_reported' => 'required',
@@ -77,6 +70,7 @@ class ItemController extends Controller {
         ]);
 
         $item = Item::with('images')->find($item_id);
+
         $item->update([
             'category_id' => $validatedData['category_id'],
             'date_reported' => $validatedData['date_reported'],
@@ -86,7 +80,7 @@ class ItemController extends Controller {
             'route_lost_on' => $validatedData['route_lost_on']
         ]);
 
-        return view('item.new', ['categories' => $categories, 'item' => $item]);
+        return redirect('/item/edit/'.$item->id);
     }
 
     public function add_photo(Request $request, $item_id) {
@@ -105,10 +99,7 @@ class ItemController extends Controller {
             'path' => $imageName
         ]);
 
-        $categories = Category::all();
-        $item = Item::with('images')->find($item_id);
-
-        return view('item.new', ['categories' => $categories, 'item' => $item]);
+        return redirect('/item/edit/'.$item_id);
     }
 
     public function change_photo(Request $request, $item_id, $image_id) {
@@ -125,10 +116,7 @@ class ItemController extends Controller {
             'path' => $imageName
         ]);
 
-        $categories = Category::all();
-        $item = Item::with('images')->find($item_id);
-
-        return view('item.new', ['categories' => $categories, 'item' => $item]);
+        return redirect('/item/edit/'.$item_id);
     }
 
     public function request_item($item_id) {
@@ -159,28 +147,4 @@ class ItemController extends Controller {
 
         return redirect('/home')->with('status', 'Request successfully submitted.');
     }
-
-    //   public function store(Request $request)
-    //   {
-    //
-
-    //     return response()->json('Project created!');
-    //   }
-
-    //   public function show($id)
-    //   {
-    //     $project = Project::with(['tasks' => function ($query) {
-    //       $query->where('is_completed', false);
-    //     }])->find($id);
-
-    //     return $project->toJson();
-    //   }
-
-    //   public function markAsCompleted(Project $project)
-    //   {
-    //     $project->is_completed = true;
-    //     $project->update();
-
-    //     return response()->json('Project updated!');
-    //   }
 }

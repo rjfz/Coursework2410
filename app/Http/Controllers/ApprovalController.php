@@ -21,7 +21,7 @@ class ApprovalController extends Controller
         }
 
         $items = Item::with(['category', 'images'])->where("approval_state", "pending")->get();
-	$categories = Category::all();
+        $categories = Category::all();
 
         return view('item.pending_approvals', ['categories' => $categories, 'items' => $items]);
     }
@@ -62,6 +62,4 @@ class ApprovalController extends Controller
         ItemRequest::find($request_id)->update(['approval_status' => 'denied']);
         return redirect('/item/requests')->with('status', 'Request successfully denied.');
     }
-
-
 }
