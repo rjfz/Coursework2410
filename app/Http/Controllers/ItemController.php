@@ -17,6 +17,10 @@ class ItemController extends Controller {
     }
 
     public function show($item_id) {
+        if (!(Auth::user())) {
+            return redirect('home')->with('status', 'You must be logged in to access this page.');
+        }
+
         $item = Item::with(['category', 'images'])->find($item_id);
 
         return view('item.show', ['item' => $item]);
