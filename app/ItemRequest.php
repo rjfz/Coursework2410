@@ -16,7 +16,7 @@ class ItemRequest extends Model
     protected $fillable = [
         'user_id', 'item_id', 'details', 'approval_status'
     ];
-
+        //all the data that is used for item requests
     public function user() {
         return $this->belongsTo('App\User');
     }

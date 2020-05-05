@@ -29,11 +29,12 @@ const Home = (props) => {
 
     const items_elements = items.map(item => {
         return <Item item={item} approvals={approvals} requests={requests} user_id={user.id} editable={item.reported_by == user.id || user.role == 'admin'} />
-    })
+    }) //item can only be editted if the id of the user matches whoever created the item  OR the user is an admin
 
     const category_values = categories.map(category => {
         return <option value={category.id}>{category.name}</option>
     })
+    //returns the name of the category id
 
     return (
         <div>
@@ -49,7 +50,7 @@ const Home = (props) => {
         </div>
     )
 }
-
+//allows user to sort items based on category
 export default Home
 
 if (document.getElementById('home_component')) {

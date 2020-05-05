@@ -13,7 +13,7 @@ class Item extends Model
      */
     protected $fillable = [
         'category_id', 'date_reported', 'date_found', 'description', 'route_lost_on', 'found_location', 'reported_by', 'approval_state'
-    ];
+    ]; //all ze different data being stored
 
     /**
      * The attributes that should be cast to native types.

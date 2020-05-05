@@ -15,15 +15,17 @@ const Item = (props) => {
     if (approvals || (requests && item.reported_by != user_id && user_id != undefined)) {
         content = <div className="card-footer">
             <div className="row">
-                { approvals ? <div className="col-sm-6"><a className="btn btn-success" href={"/item/approve/" + item.id}>Approve</a></div> : '' }
+                { approvals ? <div className="col-sm-6"><a className="btn btn-success" href={"/item/approve/" + item.id}>Approve</a></div> : '' } 
                 { approvals ? <div className="col-sm-6"><a className="btn btn-danger" href={"/item/deny/" + item.id}>Deny</a></div> : '' }
                 { (requests && item.reported_by != user_id && user_id != undefined) ? <div className="col-sm-12"><a className="btn btn-primary" href={"/item/request/" + item.id}>Request item</a></div> : '' }
             </div>
-        </div>
+        </div> //makes deny, approve and request buttons buttons
     } else {
         content = ''
     }
-
+//this basically creates the cards for all the lost items. Instead of a list which is super boring and VERY UGLY and EXTREMELY generic i decided to use cards which are much prettier!! 
+//I also set it to have a placeholder image if the user is too lazy to not put one :D 
+//It takes data entered such as category, route lost on and date reported and displays them under the image!
     return (
         <div className="col-md-4">
             <div className="card mb-3 w-100">
@@ -34,7 +36,7 @@ const Item = (props) => {
                             <h3 className="card-title text-capitalize">{item.category.name}</h3>
                             <p className="card-text">{item.route_lost_on}</p>
                             <p className="card-text text-muted">{date_reported.toLocaleDateString("en-GB")}</p>
-                        </div>
+                        </div> 
                     </a>
                 </div>
                 {content}
