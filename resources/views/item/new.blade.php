@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<!--the page for adding a new item --> 
 @section('content')
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -10,6 +10,7 @@
             </ul>
         </div>
     @endif
+    <!--if it exists 'update' if it doesn't 'create' -->
     @if (isset($item))
         <form action="/item/update/{{ $item->id }}" method="post">
     @else
@@ -36,7 +37,7 @@
                     @endforeach
                 </select>
             </div>
-        </div>
+        </div> <!--This is mainly just cp'ing the same thing for each different value required for the item --> 
         <div class="form-group row">
             <label class="col-sm-4" for="date_reported">Date Reported</label>
             <div class="col-sm-8">
@@ -92,7 +93,7 @@
     </form>
 
     <hr>
-
+ <!-- basically allows for adding images --> 
     @if (isset($item))
         <div class="row">
             @foreach ($item->images as $image)

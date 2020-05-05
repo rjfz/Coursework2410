@@ -9,7 +9,7 @@
             <div class="card-body">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-
+          <!--Basically just the layout for the whole Login, csrf is required and an example of security-->
                     <div class="form-group row">
                         <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
@@ -29,7 +29,7 @@
 
                         <div class="col-md-6">
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+<!--if theres an error it will notify--> 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -43,7 +43,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                <label class="form-check-label" for="remember">
+                                <label class="form-check-label" for="remember"> 
                                     {{ __('Remember Me') }}
                                 </label>
                             </div>

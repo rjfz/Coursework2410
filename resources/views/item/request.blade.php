@@ -11,7 +11,6 @@
             <input type="text" class="form-control" id="details" name="details" aria-describedby="details">
         </div>
     </div>
-
     <button type="submit" name="submit_details" class="btn btn-primary">Submit</button>
 </form>
 @endsection
